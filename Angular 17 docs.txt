@@ -1,0 +1,183 @@
+Angular is a frame work and react is library why we call angular is framework because it has 
+
+Modular Approach
+Component Based Architecture
+Directives
+Routing
+Services
+Pipes
+Templates
+Data Binding
+Interpolation
+Angular Cli
+Forms Integration
+Rxjs Integration
+Animation
+Signals
+Server Side Rendering
+Http and much more
+
+We use angular material and bootstrap
+
+Q Angular material command ?
+
+ng add @angular/material
+
+install bootstrap
+
+npm i bootstrap bootstrap-icons
+
+
+Angular modular architecture in angular 17
+
+
+1) No more ng module 
+
+The fundamental building block of and angular application is the NgModule, which encapsulates components, directive,pipes and services.
+
+Now everything is standalone
+
+2) AppModule:
+
+Every Angular application used to have at least one module, the root module, typically named 'AppModule', which bootstrap the application.
+
+Now every thing is standalone
+
+
+if you see main.ts the bootstrapping directly component not the module
+
+no more default appModule
+every thing is standalone which mean it can be injected and used anywhere
+
+modules are still very much supported and can be used just like any previous angular project
+
+
+Components in Angular 17
+
+By default angular 17 component are standalone means they dont need a module
+
+
+Q)how to create module command 
+
+ng g m AppModule
+
+Q)how to create lazy load component 
+ ng g module customers --route customers --module learning/learning
+
+3) No AppModule vs AppModule
+
+1) you will not see appmodule file
+
+2) components are not dependent on on modules Angular 17 is standalone
+
+3) However we can create custom modules if we want and is totally supported
+
+4) components, services or pipes Directives can be used directly and no need to be injected in modules  
+
+
+
+4) Angular 17 AppRoutes vs AppRoutingModule
+
+1) you will not see AppRoutingModule file
+
+2) But you will see AppRoutes file which has definition of routes
+
+3) However we can create custom route modules if we want and is totally supported
+
+in angular 16 and below need atleast 1 module 
+AppModule
+AppRoutingModule
+
+the routes were defined in AppRoutingModule and imported in the AppModule 
+Importing AppRoutingModule into AppModule
+AppModule -> main.ts
+
+Angular 17 onwards
+App.routes.ts -> AppRoutes
+
+App.routes.ts -> App.config.ts
+
+AppConfig -> main.ts
+
+
+Angular 17 Standalone Components
+
+Standalone Components in angular are components that are independent are can be used in various parts of an application without being tied to specific module or feature
+
+Here are few points 
+
+0) Standalone components are designed to encapsulate sepecific functionality or features making them independent and self-contained
+
+0) The primary advantage of standalone component is their high reusability they can be easily reused across different parts of an application or even in multiple projects
+
+0) unline components tied to a specific module, standalone components do not have dependencies on any particular module. This make them versatile and adaptable to different contexts
+
+you can also add providers:[] in standalone components just like you use imports
+
+
+Angular 17 Lazy Loading Modules
+
+Lazy Loading Modules: 
+
+ Lazy loading is a technique in angular that allows modules to be loaded on-demand, improving application performance by only loading the modules when they are needed
+
+Route configuration
+
+ const routes: Routes = [
+    //Other Routes
+{path: 'lazy', loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule)},
+
+  ];
+
+
+ng g module customer --routing
+
+
+
+  {
+        //for standalone component
+        path:'add-user',
+        loadComponent:() => import('./admin/add-user/add-user.component').then(c => c.AddUserComponent)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
